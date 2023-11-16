@@ -106,3 +106,17 @@ const updateData = async(
 
    // updateData(2,"laddu","bhanarkar","computers",25000,"chetna@getMaxListeners.com",)
 
+
+   const deleteData = async(ID)=>{
+      const pool = new Pool(db.database);
+      const deletedetails = `DELETE FROM public.workers Where ID = ${ID}`;
+      const result = await pool.query(deletedetails);
+      let message ="delete data sucessfully";
+      if (result.affectedRows) {
+         message:message
+      }
+      pool.end();
+      return result.rows
+   }
+
+   deleteData(2)
