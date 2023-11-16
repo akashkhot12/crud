@@ -119,4 +119,5 @@ const updateData = async(
       return result.rows
    }
 
-   deleteData(2)
+
+   module.exports={insertData,getData,getEmail,updateData,deleteData}
