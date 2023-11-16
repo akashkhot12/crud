@@ -28,5 +28,47 @@ const createTable = async()=>{
      pool.end();
 
 }
-
 // createTable();
+
+const insertData = async(
+   ID,
+   name,
+   lastname,
+   jobType,
+   sallary,
+   email
+)=>{
+   const pool = new Pool(db.database);
+   const insert =  `insert into public.workers(ID,name,lastname,jobType,sallary,email)
+   values('${ID}','${name}','${lastname}','${jobType}','${sallary}','${email}')`; 
+
+   const result = await pool.query(insert);
+   let message="data is inserted";
+   if (result.affectedRows) {
+      message:message;
+   }
+   console.log("data is inserted");
+   pool.end();
+   return result;
+  
+}
+
+// insertData(2,"chetna","bhanarkar","web develeoper",2000,"chetna03@gmail.com")
+
+const getData = async(id)=>{
+   const pool = new Pool(db.database);
+   const showData = ` select * from public.workers WHERE Id = ${id}`
+   const result  = await pool.query(showData);
+   let message="showing data on console"
+   if (result.affectedRows) {
+      message:message;
+   }
+   console.log(result.rows);
+   pool.end();
+   return result.rows
+}
+getData(2)
+
+const getEmail = async(email)=>{
+   
+}
