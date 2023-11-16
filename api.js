@@ -23,7 +23,7 @@ router.post("/insertData", async (req, res) => {
   res.status(200).json({ status: "success", message: dbResponse });
 });
 
-router.get("/getData:ID", async (req, res) => {
+router.get("/getData/:ID", async (req, res) => {
   let ID = req.params.ID;
   let dbResponse = await service.getDataService(ID);
   if (dbResponse) {
@@ -33,7 +33,7 @@ router.get("/getData:ID", async (req, res) => {
   }
 });
 
-router.get("/getEmail:email", async (req, res) => {
+router.get("/getEmail/:email", async (req, res) => {
   let email = req.params.email;
   let dbResponse = await service.getDataService(email);
   if (dbResponse) {
