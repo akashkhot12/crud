@@ -81,4 +81,28 @@ const getEmail = async(email)=>{
    return result.rows
 }
 
-getEmail("chetna03@gmail.com")
+// getEmail("chetna03@gmail.com")
+
+const updateData = async(
+   ID,
+   name,
+   lastname,
+   jobType,
+   sallary,
+   email
+   )=>{
+      const pool = new Pool(db.database);
+      const update = `UPDATE public.workers SET name = '${name}', lastname ='${lastname}', jobType='${jobType}', sallary ='${sallary}', email='${email}' WHERE ID = ${ID}`;
+      const result = await pool.query(update);
+      let message ="update a data";
+      if (result.affectedRows) {
+         message:result
+      }
+      pool.end();
+      console.log("updated data successfully");
+      console.log(result.rows);
+      return result.rows
+   }
+
+   // updateData(2,"laddu","bhanarkar","computers",25000,"chetna@getMaxListeners.com",)
+
