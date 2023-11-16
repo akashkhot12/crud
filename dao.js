@@ -67,8 +67,18 @@ const getData = async(id)=>{
    pool.end();
    return result.rows
 }
-getData(2)
+// getData(2)
 
 const getEmail = async(email)=>{
-   
+   const pool = new Pool(db.database);
+   const showData = ` select * from public.workers WHERE email = ${email}`
+   let result = await pool.query(showData);
+   if (result.affectedRows) {
+      message:result
+   }
+   pool.end()
+   console.log(result.rows);
+   return result.rows
 }
+
+getEmail("chetna03@gmail.com")
