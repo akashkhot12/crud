@@ -29,4 +29,4 @@ const createTable = async()=>{
 
 }
 
-createTable();
+// createTable();
