@@ -53,7 +53,7 @@ const insertData = async(
   
 }
 
-// insertData(2,"chetna","bhanarkar","web develeoper",2000,"chetna03@gmail.com")
+// insertData(5,"lokesh","khot","web develeoper",2700,"lokesh@@gmail.com")
 
 const getData = async(id)=>{
    const pool = new Pool(db.database);
