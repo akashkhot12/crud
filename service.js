@@ -18,7 +18,7 @@ async function insertService(
      )
 }
 
-insertService(4,"john","loard","software eng","4 lacks","jhon2@gmail.com")
+// insertService(4,"john","loard","software eng","4 lacks","jhon2@gmail.com")
 
 async function getDataService(ID){
     return await dao.getData(ID)

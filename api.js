@@ -23,6 +23,8 @@ router.post("/insertData", async (req, res) => {
   res.status(200).json({ status: "success", message: dbResponse });
 });
 
+
+
 router.get("/getData/:ID", async (req, res) => {
   let ID = req.params.ID;
   let dbResponse = await service.getDataService(ID);
