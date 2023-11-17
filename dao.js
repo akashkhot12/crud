@@ -40,7 +40,7 @@ const insertData = async(
 )=>{
    const pool = new Pool(db.database);
    const insert =  `insert into public.workers(ID,name,lastname,jobType,sallary,email)
-   values('${ID}','${name}','${lastname}','${jobType}','${sallary}','${email}')`; 
+   values(${ID},'${name}','${lastname}','${jobType}','${sallary}','${email}')`; 
 
    const result = await pool.query(insert);
    let message="data is inserted";
@@ -71,17 +71,18 @@ const getData = async(id)=>{
 
 const getEmail = async(email)=>{
    const pool = new Pool(db.database);
-   const showData = ` select * from public.workers WHERE email = ${email}`
+   const showData = `select * from public.workers WHERE email = ' '`
    let result = await pool.query(showData);
    if (result.affectedRows) {
       message:result
    }
-   pool.end()
    console.log(result.rows);
+   pool.end()
+   
    return result.rows
 }
 
-// getEmail("chetna03@gmail.com")
+// getEmail("chetna@gmail.com")
 
 const updateData = async(
    ID,
